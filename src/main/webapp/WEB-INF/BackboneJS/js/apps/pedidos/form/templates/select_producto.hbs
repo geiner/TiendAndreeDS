@@ -1,0 +1,10 @@
+<label class="control-label col-md-5" for="n_producto">Nombre Producto</label>
+
+<div class="col-md-7">
+    <select id="n_producto" class="form-control">
+        <option value="99">Seleccionar Producto</option>
+        {{#each items}}
+        <option value="{{codigo_producto}}" data="{{precio_producto}}">{{nombre_producto}}</option>
+        {{/each}}
+    </select>
+</div>

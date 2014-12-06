@@ -1,0 +1,143 @@
+.signup {
+    color: rgba(40, 208, 0, .9);
+    border: 1px solid rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 4px;
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.header1 {
+    background-image: url('../img/fondo2.jpg');
+    /*background: no-repeat;*/
+    opacity: 1;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.signup:hover {
+    color: rgba(40, 208, 0, 1);
+    background-color: rgba(255, 255, 255, .8) !important;
+    border-color: rgba(2555, 2555, 255, .8);
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.contenido > h1 {
+    font-weight: bold;
+    font-size: 37px;
+}
+
+.contenido {
+    width: 100%;
+}
+
+.contenido > p {
+    width: 75%;
+    margin-left: 13%;
+    font-size: 17px;
+}
+
+.home_btna {
+    border: 0;
+    background-color: #333;
+    padding: 4px 0px !important;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.home_btna:hover {
+    text-decoration: none;
+    color: #fff;
+    /*background-color: #1a1a1a !important */
+    background-color: rgba(40, 208, 0, .5) !important;
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.usu {
+    background-image: url('../img/email.png');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-size: 21px;
+    background-position-y: 35%;
+}
+
+.contra {
+    background-image: url('../img/candado.png');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-size: 21px;
+    background-position-y: 35%;
+}
+
+.trans {
+    background-color: rgba(47, 47, 47, 0.80) !important;
+    color: rgba(40, 208, 0, 1) !important;
+    border: 0px !important;
+}
+
+.trans:focus {
+    border-color: rgba(40, 208, 0, 1);
+}
+
+.cont_form {
+    padding: 15px !important;
+    width: 410px !important;
+    margin-left: 5.3% !important;
+    background-color: rgba(255, 255, 255, .4) !important;
+}
+
+.trans::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.btn_login {
+    width: 102px;
+    border-radius: 4px;
+    color: rgba(40, 208, 0, 1);
+    background-color: rgba(47, 47, 47, 0.80) !important;
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.aceptar:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 208, 0, .8) !important;
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+}
+
+.cancelar:hover {
+    transition: background-color 0.6s linear, border-color 0.6s linear;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(40, 208, 0, .8) !important;
+}
+
+#boton_login {
+    position: absolute;
+    margin-left: 43.7%;
+}
+
+#formulario {
+
+}
+
+/*  CSS para pagina Admin*/
+.cabecera {
+    margin-bottom: 0px !important;
+    background: linear-gradient(45deg, #000000 0%, #bfd18c 100%);
+    border-radius: 0px !important;
+    border: 0px !important;
+}
+.menu{
+    border:1px solid rgba(0, 0, 0, .8);
+    background: linear-gradient(45deg, #000000 0%, #bfd18c 100%) !important;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+}
+.sv > a{
+    color:rgba(40, 208, 0,1) !important;
+}

@@ -1,0 +1,440 @@
+<fieldset class="avgrund-contents">
+<div class="tabbable tabs-left" id="">
+<ul class="nav nav-tabs" id="">
+    <li class="active"><a href="#lA" data-toggle="tab">Producto</a></li>
+    <li class=""><a href="#lB" data-toggle="tab">Administrar Proveedores</a></li>
+    <li class=""><a href="#lC" data-toggle="tab">Requerimientos</a></li>
+</ul>
+<br>
+
+<div class="tab-content">
+<div class="tab-pane active" id="lA">
+
+    </br>
+    <ol class="breadcrumb">
+        <li><a id="nuevo_producto">Nuevo Producto</a></li>
+        <li><a id="modificar_producto" class="active">Modificar Producto</a></li>
+    </ol>
+    <div id="nuevo" class="">
+        <br/>
+
+        <div class="row form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-6"><h2>Datos del Nuevo Producto</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <label class="col-md-5">Nombre</label>
+
+                    <div class="col-md-7">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Tipo de Producto</label>
+
+                    <div class="col-md-7">
+                        <select id="t_producto" class="form-control">
+                            <option value="99">Seleccionar Tipo de Producto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio</label>
+
+                    <div class="col-md-7">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Cantidad</label>
+
+                    <div class="col-md-7">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar
+                        </button>
+                        <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modificar" style="display: none;" class="">
+        </br>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Modificar datos del producto</h2>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td><label>Codigo</label></td>
+                        <td><label>Tipo Producto</label></td>
+                        <td><label>Nombre Producto</label></td>
+                        <td><label>Ver Detalle</label></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <label class="col-md-5">Nombre Producto</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Tipo Producto</label>
+
+                    <div class="col-md-7 controls">
+                        <select id="t_producto" class="form-control">
+                            <option value="99">Seleccionar Tipo de Producto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio de Compra</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio de Venta</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Codigo</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" disabled="disabled"/>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar
+                        </button>
+                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                        <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Limpiar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="tab-pane" id="lB">
+    </br>
+    <ol class="breadcrumb">
+        <li><a id="agregar">Agregar</a></li>
+        <li><a id="modificar" class="active">Modificar</a></li>
+    </ol>
+    <div id="agre">
+        <br/>
+        <legend>Registrar Proveedor</legend>
+        <br/>
+
+        <form class="form-horizontal" id="agregar_pro">
+            <fieldset>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_nompro">Nombre proveedor</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_nompro" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_direcc">Direccion</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_direcc" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_tele">Telefono</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_tele" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_mail">E-mail</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_mail" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_dsc">Descripcion</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_dsc" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-success"><span
+                                    class="glyphicon glyphicon-floppy-disk"></span> Guardar
+                            </button>
+                            <button type="button" class="btn btn-default"><span
+                                    class="glyphicon glyphicon-glyphicon-remove"></span> Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div id="modi" style="display: none;">
+        <br/>
+
+        <form class="form-horizontal" id="registrar_pedido">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Modificar datos del Proveedor</h2>
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td><label>Codigo</label></td>
+                                <td><label>Proveedor</label></td>
+                                <td><label>Ver Detalle</label></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-xs"><span class="glyphicon glyphicon-list-alt"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row form-group">
+                            <label class="control-label col-md-5" for="n_nompro">Nombre proveedor</label>
+
+                            <div class="col-md-7 controls">
+                                <input type="text" id="n_nompro" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-5" for="n_direcc">Direccion</label>
+
+                            <div class="col-md-7 controls">
+                                <input type="text" id="n_direcc" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-5" for="n_tele">Telefono</label>
+
+                            <div class="col-md-7 controls">
+                                <input type="text" id="n_tele" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-5" for="n_mail">E-mail</label>
+
+                            <div class="col-md-7 controls">
+                                <input type="text" id="n_mail" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-5" for="n_dsc">Descripcion</label>
+
+                            <div class="col-md-7 controls">
+                                <input type="text" id="n_dsc" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-5"></div>
+                            <div class="col-md-7">
+                                <button type="button" class="btn btn-success"><span
+                                        class="glyphicon glyphicon-floppy-disk"></span>
+                                    Guardar
+                                </button>
+                                <button type="button" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-refresh"></span>
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+<div class="tab-pane" id="lC">
+    <br/>
+
+    <form class="form-horizontal" id="registrar_compra">
+        <fieldset>
+            <div class="row form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-6" id="div_reque">
+                    <label class="control-label col-md-5" for="tipo">Requerimiento</label>
+
+                    <div class="col-md-7">
+                        <select id="tipo" class="form-control">
+                            <option value="99">Requerimiento</option>
+                            <option value="1">opcion a</option>
+                            <option value="2">opcion b</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br/><br/>
+
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-bordered table-hover">
+                        <thead class="header">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br/>
+            <div class="row form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_montot">Monto total </label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_montot" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-6" id="div_est">
+                    <label class="control-label col-md-5" for="tipo">Estado </label>
+
+                    <div class="col-md-7">
+                        <select id="tipoProveedor" class="form-control">
+                            <option value="99">Elija</option>
+                            <option value="1">opcion a</option>
+                            <option value="2">opcion b</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-8">Dinero disponible: S/.1264.00</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <button type="button" class="btn btn-success"><span
+                                class="glyphicon glyphicon-floppy-disk"></span>
+                            Guardar-Notificar
+                        </button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+</fieldset>
+</form>
+
+</div>
+</div>
+</div>
+</fieldset>

@@ -1,0 +1,9 @@
+<label class="col-md-5" id="lb_t_producto">Tipo de Producto</label>
+<div class="col-md-7" id="div_t_producto">
+    <select id="t_producto" class="form-control">
+        <option value="99">Seleccionar Tipo de Producto</option>
+        {{#each items}}
+            <option value="{{tipo}}">{{descripcion}}</option>
+        {{/each}}
+    </select>
+</div>

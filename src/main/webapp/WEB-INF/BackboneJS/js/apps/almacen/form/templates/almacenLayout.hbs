@@ -1,0 +1,497 @@
+<div class="row">
+<div class="div col-md-12">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Generar Requerimiento</a></li>
+    <li><a data-toggle="tab" href="#a">Administracion de Productos</a></li>
+    <li><a data-toggle="tab" href="#b">Administracion de Inventarios</a></li>
+</ul>
+<div class="tab-content">
+<div id="home" class="tab-pane active">
+    </br>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Generar Requerimiento</h2>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td><label>Codigo</label></td>
+                    <td><label>Nombre</label></td>
+                    <td><label>Stock</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="row form-group">
+                <label class="col-md-4 control-label" for="id">Tipo</label>
+
+                <div class="col-md-8">
+                    <select id="id" class="form-control">
+                        <option value="99">Seleccionar Tipo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-md-4 control-label">Codigo</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-md-4 control-label">Nombre</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-md-4 control-label">Stock Actual</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-md-4 control-label">Cantidad a solicitar</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-3 pull-right">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
+                        Eliminar
+                    </button>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            </br>
+            <h1>Productos</h1>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td><label>Codigo</label></td>
+                    <td><label>Nombre</label></td>
+                    <td><label>Cantidad Solicitada</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>N° de requerimiento: 00021-2014</label>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-6">
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+            <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<div id="a" class="tab-pane">
+    </br>
+    <ol class="breadcrumb">
+        <li><a id="nuevo_producto">Nuevo Producto</a></li>
+        <li><a id="modificar_producto" class="active">Modificar Producto</a></li>
+        <!--<li class="active">Data</li>-->
+    </ol>
+    <div id="nuevo" class="">
+        <br/>
+        <div class="row form-group">
+            <div class="col-md-4"></div>
+            <div class="col-md-6"><h2>Datos del Nuevo Producto</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <label class="col-md-5">Nombre</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="nom_pro"/>
+                    </div>
+                </div>
+                <div class="row form-group" id="div_tipoproducto">
+
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio(% de ganancia)</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="porc_precio"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Cantidad(uni. medida)</label>
+                    <div class="col-md-7">
+                        <select id="uni_medida" class="form-control">
+                            <option value="99">Seleccionar unidad de medida</option>
+                            <option value="KG">Kilogramos</option>
+                            <option value="LT">Litros</option>
+                            <option value="UNI">Unidad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Cantidad</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" value="0" disabled="disabled" id="cantidad"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success" id="guardar_producto"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                        <button class="btn btn-default" id="limpiar_nuevo_producto"><span class="glyphicon glyphicon-refresh"></span> Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modificar" style="display: none;" class="">
+        </br>
+        <div class="row">
+            <div class="col-md-6" id="div_tabla_producto">
+
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <label class="col-md-5">Nombre Producto</label>
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" id="nom_pro_modificar"/>
+                    </div>
+                </div>
+                <div class="row form-group" id="div_tipopro_modificar">
+
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio de Compra</label>
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Precio de Venta(% ganancia)</label>
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" id="mod_prec_venta"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-5">Codigo</label>
+                    <div class="col-md-7 controls">
+                        <input type="text" class="form-control" disabled="disabled" id="codigo_modificar"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <button class="btn btn-success" id="actualizar_producto"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                        <button class="btn btn-danger" id="eliminar_producto"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                        <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="b" class="tab-pane">
+</br>
+<ol class="breadcrumb">
+    <li><a id="salida">Registro Salida Productos</a></li>
+    <li><a id="entrada" class="active">Registro Entrada Productos</a></li>
+    <li><a id="reportes" class="active">Generar Reportes</a></li>
+</ol>
+<div class="row" id="rsp">
+    <div class="row" style="text-align: center;">
+        <h2>Salida de Productos</h2>
+    </div>
+    <br/>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Tipo Producto</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Tipo de Producto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Nombre Producto</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Producto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Cliente</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Cliente</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Cantidad</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Fecha</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td><label>Fecha</label></td>
+                    <td><label>Producto</label></td>
+                    <td><label>Cliente</label></td>
+                    <td><label>Cantidad</label></td>
+                    <td><label>Precio de Venta</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </br>
+    </div>
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-6">
+            <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+            <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<div class="row" id="rep" style="display: none;">
+    <div class="row" style="text-align: center;">
+        <h2>Entrada de Productos</h2>
+    </div>
+    <br/>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Tipo Producto</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Tipo de Producto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Nombre Producto</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Producto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Proveedor</label>
+            <div class="col-md-7">
+                <select id="" class="form-control">
+                    <option value="99">Seleccionar Proveedor</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Cantidad</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Precio de Compra</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <label class="col-md-5">Fecha</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="col-md-5"></div>
+            <div class="col-md-7 pull-right">
+                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td><label>Fecha</label></td>
+                <td><label>Producto</label></td>
+                <td><label>Proveedor</label></td>
+                <td><label>Cantidad</label></td>
+                <td><label>Precio de Compra</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        </br>
+    </div>
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-6">
+            <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+            <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<div class="row" id="grep" style="display: none;">
+    </br>
+    <div class="row">
+        <div class="col-md-5">
+            <textarea id="descripcion" name="descripcion" cols="40" rows="15"></textarea>
+        </div>
+        <div class="col-md-2">
+            <label for="">Fecha: </label>
+            <input type="text"/>
+            <br/><br/>
+            <input type="submit" name="enviar" value="Generar"/>
+            </br></br>
+            <input type="submit" name="enviar" value="Imoprimir"/>
+        </div>
+        <div class="col-md-5">
+            <textarea id="descripcion" name="descripcion" cols="40" rows="15"></textarea>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+		
