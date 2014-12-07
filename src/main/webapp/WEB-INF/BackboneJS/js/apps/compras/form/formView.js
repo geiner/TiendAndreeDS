@@ -31,8 +31,12 @@ define(["app", "hbs!apps/compras/form/templates/comprasLayout",'apps/compras/for
             },
 
             habilitar_modificar: function () {
+                var self=this;
                 $('#modi').show();
                 $('#agre').hide();
+                this.traerProveedor.fetchProveedores(function () {
+                    self.table_proveedor.show(self.traerProveedor);
+                })
             },
 
             insertar_nuevo_proveedor:function(){
