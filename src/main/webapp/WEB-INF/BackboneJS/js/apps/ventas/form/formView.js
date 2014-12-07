@@ -101,6 +101,9 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
                     if($('#cantidad').val()<=self.model.get("productomodel").get("cantidad")){
                         var codigo=self.model.get("productomodel").get("codigo");
                         self.cod_producto.push(codigo);
+                        for(var i=0;i<self.cod_producto.length;i++){
+                            console.log(self.cod_producto[i]+"-"+i);
+                        }
                         var nombre=self.model.get("productomodel").get("nombre");
                         var cantidad=$('#cantidad').val();
                         var stock=self.model.get("productomodel").get("cantidad");
@@ -125,7 +128,12 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
                 var self=this;
                 var clickedElement=$(ev.currentTarget);
                 clickedElement.parent().parent().remove();
-                this.cod_producto.indexOf(clickedElement.parent().parent().attr('id'), 1)
+                alert(clickedElement.parent().parent().attr('id')+"-")
+                alert(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))))
+                self.cod_producto.splice(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))), 1);
+                for(var i=0;i<self.cod_producto.length;i++){
+                    console.log(self.cod_producto[i]);
+                }
                 self.costo_total_pedido=self.costo_total_pedido-clickedElement.parent().parent().children(':nth-child(5)').text();
                 $('#costo_total').text(self.costo_total_pedido);
             },
@@ -165,7 +173,10 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
 
                         self_s.fail(function () {
                             alert("detalle pedido registrado")
-                            self.cod_producto.indexOf(self.cod_producto[i], 1)
+                            self.cod_producto.splice(self.cod_producto.indexOf(parseInt(self.cod_producto[i])),1);
+                            if(i==self.cod_producto.length-1){
+                                $('#tabla_productos_pedido > tbody ').remove();
+                            }
                         });
                     }
                 });
