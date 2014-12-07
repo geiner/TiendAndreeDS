@@ -1,0 +1,28 @@
+<table class="table table-bordered table-hover" id="table_proveedor" >
+    <thead class="header" style="color: #040404;background-color:#f5f5f5">
+    <tr>
+        <th>Codigo</th>
+        <th>Proveedor</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>E-mail</th>
+        <th>Ver Detalle</th>
+    </tr>
+    </thead>
+    <tbody id="fam_content">
+    {{#each items}}
+    <tr id="{{codigo}}">
+        <td>{{codigo}}</td>
+        <td>{{nom_proveedor}}</td>
+        <td>{{telefono}}</td>
+        <td>{{email}}</td>
+        <td>{{descripcion}}</td>
+        <td>
+            <button class="btn btn-xs" id="ver_detalle"><span class="glyphicon glyphicon-list-alt"></span></button>
+        </td>
+    </tr>
+    {{else}}
+        <td colspan="6">No existen proveedores </td>
+    {{/each}}
+    </tbody>
+</table>
