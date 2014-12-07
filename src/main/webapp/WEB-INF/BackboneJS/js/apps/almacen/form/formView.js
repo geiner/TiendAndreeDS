@@ -57,8 +57,6 @@ define(["app", "hbs!apps/almacen/form/templates/almacenLayout","apps/almacen/for
                 this.traerProductos.fetchProductos(function(){
                     self.div_tabla_producto.show(self.traerProductos);
                 });
-
-
             },
             habilitar_salida_producto:function(){
                 $('#rsp').show();
@@ -116,6 +114,8 @@ define(["app", "hbs!apps/almacen/form/templates/almacenLayout","apps/almacen/for
                 });
 
                 this.model.get("guardarproducto").url = "rest/almacen/actualizar_producto";
+
+
 
                 var self_s = this.model.get("guardarproducto").save({}, {wait: true});
 
