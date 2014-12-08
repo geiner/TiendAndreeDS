@@ -1,5 +1,6 @@
 package com.tienda.andree.controllers;
 
+import com.tienda.andree.models.Producto;
 import com.tienda.andree.models.Proveedor;
 import com.tienda.andree.services.ComprasService;
 import org.slf4j.Logger;
@@ -36,5 +37,28 @@ public class ComprasController {
     public List<Proveedor> ListarProveedor(){
         System.out.println("listando proveedores");
         return comprasService.ListarProveedor();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json", value = "/actualizar_proveedor")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public String ActualizarProducto(@RequestBody Proveedor proveedor) {
+        System.out.println("--> "+proveedor.getNom_proveedor()+"-"+proveedor.getCodigo());
+        comprasService.ActualizarProveedor(proveedor);
+        return "save";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/traer_x_producto")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseBody
+    public List<Producto> listarXProducto(){
+        return comprasService.listarXProducto();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/traer_x_proveedor")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseBody
+    public List<Proveedor> listarXProveedor(){
+        return comprasService.listarXProveedor();
     }
 }

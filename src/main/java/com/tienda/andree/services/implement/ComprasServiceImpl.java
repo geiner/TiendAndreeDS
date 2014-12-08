@@ -1,5 +1,6 @@
 package com.tienda.andree.services.implement;
 
+import com.tienda.andree.models.Producto;
 import com.tienda.andree.models.Proveedor;
 import com.tienda.andree.persistence.ComprasMapper;
 import com.tienda.andree.services.ComprasService;
@@ -29,5 +30,18 @@ public class ComprasServiceImpl implements ComprasService {
     public List<Proveedor> ListarProveedor() {
         System.out.println("mostrar tabla");
         return comprasMapper.listarProveedor();
+    }
+    @Override
+    public void ActualizarProveedor(Proveedor proveedor){
+        comprasMapper.actualizarProveedor(proveedor);
+    }
+
+    @Override
+    public List<Producto> listarXProducto(){
+        return comprasMapper.listarXProducto();
+    }
+    @Override
+    public List<Proveedor> listarXProveedor(){
+        return  comprasMapper.listarXProveedor();
     }
 }
