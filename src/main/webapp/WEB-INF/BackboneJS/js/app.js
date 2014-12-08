@@ -18,7 +18,7 @@ define(["marionette"], function(Marionette){
 
     TiendaAndre.on("initialize:after", function(){
         if(Backbone.history){
-            require(["apps/inicio/inicio_app","apps/pedidos/pedidos_app"
+            require(["apps/inicio/inicio_app"
                 ,"apps/almacen/almacen_app","apps/ventas/ventas_app",
                 "apps/compras/compras_app","apps/admin/admin_app"], function () {       //para cada modulo agregar la url donde se encuentra apps/planillas/planillas_app
                 Backbone.history.start();

@@ -2,6 +2,7 @@ package com.tienda.andree.controllers;
 
 import com.tienda.andree.models.Pedido;
 import com.tienda.andree.models.Producto;
+import com.tienda.andree.models.Venta;
 import com.tienda.andree.services.VentasService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,4 +59,29 @@ public class VentasController {
         ventasService.RegistrarDetallePedido(pedido);
         return "save";
     };
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/traerproducto_por_venta/{pedido}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseBody
+    public List<Producto> TraerProductosPorPedido(@PathVariable(value = "pedido") Integer pedido) {
+        System.out.println("traendo productos por pedido");
+        return ventasService.TraerProductosPorPedido(pedido);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json", value = "/registrar_venta")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public String RegistrarVenta(@RequestBody Venta venta) {
+        System.out.println(venta.getN_pedido()+"-"+venta.getTipo_comprobante()+"-"+venta.getRuc());
+        ventasService.RegistrarVenta(venta);
+        return "save";
+    };
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/consultar_venta/{pedido}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseBody
+    public List<Venta> ConsultarVenta(@PathVariable(value = "pedido") Integer pedido) {
+        System.out.println("traendo consulta de venta");
+        return ventasService.ConsultarVenta(pedido);
+    }
 }

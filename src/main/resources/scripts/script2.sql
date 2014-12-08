@@ -21,3 +21,15 @@ CREATE TABLE pedido
     costo float,
     CONSTRAINT detallepedido_pk PRIMARY KEY (n_pedido,cod_producto)
   );
+
+  CREATE TABLE venta
+  (
+    n_pedido integer not null,
+    tipo_comprobante integer not null,
+    nombres varchar2(50),
+    apellidos varchar2(50),
+    dni integer,
+    direccion varchar2(100),
+    ruc varchar2(11),
+    CONSTRAINT venta_pk PRIMARY KEY (n_pedido)
+  ) ;

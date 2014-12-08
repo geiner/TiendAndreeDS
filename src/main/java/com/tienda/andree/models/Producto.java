@@ -11,6 +11,15 @@ public class Producto {
     private Integer porc_precio;
     private String uni_medida;
     private Integer cantidad;
+    private Double costo;
+
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
+    }
 
     public Integer getTipo() {
         return tipo;

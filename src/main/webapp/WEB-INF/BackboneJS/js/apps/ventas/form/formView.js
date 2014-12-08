@@ -1,12 +1,16 @@
 define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form/views/select_tipoproducto_view",
     "apps/ventas/form/views/select_producto_view", "apps/ventas/form/model/pedido", "apps/ventas/form/model/producto",
-    "bootstrap"], function (TiendaAndre, layoutTpl, SelectTipoProductoView, TraerProductos, PedidoModel, ProductoModel) {
+    "apps/ventas/form/views/tabla_productos_pedido","apps/ventas/form/model/venta","apps/ventas/form/views/tabla_consultar_venta",
+    "bootstrap"], function (TiendaAndre, layoutTpl, SelectTipoProductoView, TraerProductos, PedidoModel,
+                            ProductoModel,ProductosPedido,VentaModel,ConsultarVenta) {
     TiendaAndre.module('VentasApp.List.View', function (View, TiendaAndre, Backbone, Marionette, $, _) {
 
         View.Layout = Marionette.Layout.extend({
             template: layoutTpl,
             selectTipoProductoView: new SelectTipoProductoView(),
             traerProductos: new TraerProductos(),
+            productosPedido:new ProductosPedido(),
+            consultarVenta:new ConsultarVenta(),
 
             numero_pedido: null,
             costo_total_pedido: 0,
@@ -16,7 +20,9 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
 
             regions: {
                 div_select_tipoproducto: "#div_select_tipoproducto",
-                div_select_producto: "#div_select_producto"
+                div_select_producto: "#div_select_producto",
+                div_tabla_productos_rv:"#div_tabla_productos_rv",
+                div_tabla_consultar_venta:"#div_tabla_consultar_venta"
             },
 
             events: {
@@ -27,7 +33,10 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                 "click #registrar_pedido": "registrar_pedido",
                 "click #enviar_almacen": "enviar_almacen",
                 "click #registrar_venta": "registrar_venta",
-                "click #cancelar_pedido": "cancelar_pedido"
+                "click #cancelar_pedido": "cancelar_pedido",
+                "change #tipo_comp":"change_tipo_comp",
+                "click #registrar_v":"registrar_v",
+                "click #buscar_venta":"buscar_venta"
             },
 
             onRender: function () {
@@ -41,7 +50,8 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
 
                 this.model.set({
                     pedidomodel: new PedidoModel(),
-                    productomodel: new ProductoModel()
+                    productomodel: new ProductoModel(),
+                    ventamodel:new VentaModel()
                 });
             },
             initialFetch: function () {
@@ -191,6 +201,7 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                                 $('#t_producto').val(99);
                                 $('#n_producto').val(99);
                                 $('#cantidad').val("");
+                                $('#cancelar_pedido').attr('disabled', 'disabled');
                                 self.costo_total_pedido = 0;
                             }
                         });
@@ -200,11 +211,23 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
             },
 
             enviar_almacen: function () {
-
+                alert("update")
             },
 
             registrar_venta: function () {
+                var self=this;
+                $('#m_pedido_venta').val(this.numero_pedido)
                 $('#rv').click();
+                var costo_total=0;
+                this.productosPedido.fetchProductosPedido(this.numero_pedido, function () {
+                    for(var i=0;i<self.productosPedido.collection.length;i++){
+                        costo_total=costo_total+self.productosPedido.collection.at(i).get("costo");
+                        if(i==(self.productosPedido.collection.length-1)){
+                            $('#poner_costo').text(costo_total);
+                        };
+                    }
+                });
+                self.div_tabla_productos_rv.show(self.productosPedido);
             },
 
             cancelar_pedido: function () {
@@ -221,6 +244,59 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                 $('#n_producto').val(99);
                 $('#cantidad').val("");
                 self.costo_total_pedido = 0;
+            },
+
+            change_tipo_comp: function () {
+                if($('#tipo_comp').val()==1){
+                    $('#div_ruc').hide();
+                    $('#ruc').val("")
+                }else{
+                    $('#div_ruc').show();
+                    $('#ruc').val("")
+                }
+            },
+
+            registrar_v: function () {
+                var self=this;
+                self.model.get("ventamodel").set({
+                    "n_pedido": self.numero_pedido,
+                    "tipo_comprobante": $('#tipo_comp').val(),
+                    "nombres": $('#nombres').val(),
+                    "apellidos": $('#apellidos').val(),
+                    "dni": $('#dni').val(),
+                    "direccion": $('#direccion').val(),
+                    "ruc": $('#m_pedido_venta').val()
+                });
+
+                self.model.get("ventamodel").url = "rest/ventas/registrar_venta";
+
+                var self_s = self.model.get("ventamodel").save({}, {wait: true});
+
+                self_s.done(function () {
+                });
+
+                self_s.fail(function () {
+                    alert("se registro la venta")
+                });
+            },
+
+            buscar_venta: function () {
+                var self=this;
+                var costo_total=0;
+                this.consultarVenta.fetchConsultarVenta($('#pedido_ingresado').val(), function () {
+                    for(var i=0;i<self.consultarVenta.collection.length;i++){
+                        costo_total=costo_total+self.consultarVenta.collection.at(i).get("costo");
+                        if(i==(self.consultarVenta.collection.length-1)){
+                            $('#text_costo_total').text(costo_total);
+                            $('#consultar_nombre').val(self.consultarVenta.collection.at(i).get("nombres"));
+                            $('#consultar_apellidos').val(self.consultarVenta.collection.at(i).get("apellidos"));
+                            $('#consultar_dni').val(self.consultarVenta.collection.at(i).get("dni"));
+                            $('#consultar_direccion').val(self.consultarVenta.collection.at(i).get("direccion"));
+                            $('#consultar_fecha').val(self.consultarVenta.collection.at(i).get("fecha"))
+                        };
+                    };
+                });
+                this.div_tabla_consultar_venta.show(this.consultarVenta);
             }
         });
     });

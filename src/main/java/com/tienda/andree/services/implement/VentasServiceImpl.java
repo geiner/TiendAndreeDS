@@ -2,6 +2,7 @@ package com.tienda.andree.services.implement;
 
 import com.tienda.andree.models.Pedido;
 import com.tienda.andree.models.Producto;
+import com.tienda.andree.models.Venta;
 import com.tienda.andree.persistence.VentasMapper;
 import com.tienda.andree.services.VentasService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,20 @@ public class VentasServiceImpl implements VentasService{
     public void RegistrarDetallePedido(Pedido pedido) {
         ventasMapper.RegistrarDetallePedido(pedido);
         ventasMapper.actualizar_stock(pedido);
+    }
+
+    @Override
+    public List<Producto> TraerProductosPorPedido(Integer pedido) {
+        return ventasMapper.TraerProductosPorPedido(pedido);
+    }
+
+    @Override
+    public void RegistrarVenta(Venta venta) {
+        ventasMapper.RegistrarVenta(venta);
+    }
+
+    @Override
+    public List<Venta> ConsultarVenta(Integer pedido) {
+        return ventasMapper.ConsultarVenta(pedido);
     }
 }

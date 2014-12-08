@@ -2,6 +2,7 @@ package com.tienda.andree.persistence;
 
 import com.tienda.andree.models.Pedido;
 import com.tienda.andree.models.Producto;
+import com.tienda.andree.models.Venta;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -71,4 +72,79 @@ public interface VentasMapper {
             "  ) " +
             "WHERE pro.codigo=#{pedido.cod_producto}")
     void actualizar_stock(@Param("pedido") Pedido pedido);
+
+    @Select(value = "SELECT pro.nombre, " +
+            "  dp.cantidad, " +
+            "  dp.costo, " +
+            "  pro.porc_precio " +
+            "FROM pedido pe " +
+            "INNER JOIN detalle_pedido dp " +
+            "ON(pe.n_pedido =dp.n_pedido " +
+            "AND pe.n_pedido=#{pedido}) " +
+            "INNER JOIN producto pro " +
+            "ON(pro.codigo=dp.cod_producto)")
+    @Results(value = {
+            @Result(javaType = Producto.class),
+            @Result(property = "nombre",column = "nombre"),
+            @Result(property = "cantidad",column = "cantidad"),
+            @Result(property = "porc_precio",column = "porc_precio"),
+            @Result(property = "costo",column = "costo"),
+    })
+    List<Producto> TraerProductosPorPedido(@Param("pedido") Integer pedido);
+
+    @Insert(value = "INSERT " +
+            "INTO venta " +
+            "  ( " +
+            "    n_pedido, " +
+            "    tipo_comprobante, " +
+            "    nombres, " +
+            "    apellidos, " +
+            "    dni, " +
+            "    direccion, " +
+            "    ruc " +
+            "  ) " +
+            "  VALUES " +
+            "  ( " +
+            "    #{venta.n_pedido}, " +
+            "    #{venta.tipo_comprobante}, " +
+            "    #{venta.nombres}, " +
+            "    #{venta.apellidos}, " +
+            "    #{venta.dni}, " +
+            "    #{venta.direccion}, " +
+            "    #{venta.ruc} " +
+            "  )")
+    void RegistrarVenta(@Param("venta") Venta venta);
+
+    @Select(value = "SELECT v.nombres, " +
+            "  v.apellidos, " +
+            "  v.dni, " +
+            "  v.direccion, " +
+            "  to_char(p.fecha,'dd/mm/yyyy') as fecha, " +
+            "  pro.nombre AS nombre_producto , " +
+            "  dp.cantidad, " +
+            "  pro.porc_precio, " +
+            "  dp.costo, " +
+            "  p.costo_total " +
+            "FROM venta v " +
+            "INNER JOIN pedido p " +
+            "ON(v.n_pedido =p.n_pedido " +
+            "AND v.n_pedido=#{pedido}) " +
+            "INNER JOIN detalle_pedido dp " +
+            "ON(p.n_pedido=dp.n_pedido) " +
+            "INNER JOIN producto pro " +
+            "ON(pro.codigo=dp.cod_producto)")
+    @Results(value = {
+            @Result(javaType = Venta.class),
+            @Result(property = "nombres",column = "nombres"),
+            @Result(property = "apellidos",column = "apellidos"),
+            @Result(property = "dni",column = "dni"),
+            @Result(property = "direccion",column = "direccion"),
+            @Result(property = "fecha",column = "fecha"),
+            @Result(property = "nombre_producto",column = "nombre_producto"),
+            @Result(property = "cantidad",column = "cantidad"),
+            @Result(property = "porc_precio",column = "porc_precio"),
+            @Result(property = "costo",column = "costo"),
+            @Result(property = "costo_total",column = "costo_total"),
+    })
+    List<Venta> ConsultarVenta(@Param("pedido")Integer pedido);
 }

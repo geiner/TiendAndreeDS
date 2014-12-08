@@ -1,0 +1,27 @@
+<h3>Lista de Productos</h3>
+<table class="table table-bordered table-hover" id="tabla_productos_vendidos">
+    <thead class="header" style="color: #040404;background-color:#f5f5f5">
+    <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Precio total</th>
+    </tr>
+    </thead>
+    <tbody id="fam_content">
+    {{#each items}}
+    <tr>
+        <td>{{nombre}}</td>
+        <td>{{cantidad}}</td>
+        <td>{{porc_precio}}</td>
+        <td>{{costo}}</td>
+    </tr>
+    {{else}}
+        <td colspan="4">No existen estudios para este Servidor</td>
+    {{/each}}
+    </tbody>
+</table>
+<div class="col-md-4 pull-right">
+    <label>Costo Total </label>
+    <label id="poner_costo"></label>
+</div>

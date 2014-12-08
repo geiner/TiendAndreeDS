@@ -2,6 +2,7 @@ package com.tienda.andree.services;
 
 import com.tienda.andree.models.Pedido;
 import com.tienda.andree.models.Producto;
+import com.tienda.andree.models.Venta;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface VentasService {
     void RegistrarPedido(Pedido pedido);
 
     void RegistrarDetallePedido(Pedido pedido);
+
+    List<Producto> TraerProductosPorPedido(Integer pedido);
+
+    void RegistrarVenta(Venta venta);
+
+    List<Venta> ConsultarVenta(Integer pedido);
 }

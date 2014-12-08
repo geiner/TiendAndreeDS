@@ -3,7 +3,7 @@
 <ul class="nav nav-tabs" id="">
     <li class="active"><a href="#lA" data-toggle="tab">Registrar Pedido</a></li>
     <li class=""><a href="#lB" data-toggle="tab" id="rv">Registrar Venta</a></li>
-    <li class=""><a href="#lC" data-toggle="tab" id="cp">Consultar pedidos</a></li>
+    <li class=""><a href="#lC" data-toggle="tab" id="cp">Consultar Venta</a></li>
     <!--<li class=""><a href="#lE" data-toggle="tab">Carrera Laboral</a></li>-->
 
 
@@ -137,7 +137,6 @@
 
                     <div class="col-md-7">
                         <select id="tipo_comp" class="form-control">
-                            <option value="99">Seleccionar</option>
                             <option value="1">Boleta</option>
                             <option value="2">Factura</option>
                         </select>
@@ -150,14 +149,14 @@
                     <label class="col-md-5">Nombres</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="nombres"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label class="col-md-5">Apellidos</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="apellidos"/>
                     </div>
                 </div>
             </div>
@@ -166,14 +165,14 @@
                     <label class="col-md-5">DNI</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="dni"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label class="col-md-5">Direccion</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="direccion"/>
                     </div>
                 </div>
             </div>
@@ -182,14 +181,14 @@
                     <label class="col-md-5">N° de pedido</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control" disabled="disabled" value="100"/>
+                        <input type="text" class="form-control" disabled="disabled" id="m_pedido_venta"/>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="div_ruc" style="display: none;">
                     <label class="col-md-5">RUC</label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="ruc"/>
                     </div>
                 </div>
             </div>
@@ -198,32 +197,8 @@
             <div class="row">
                 <div class="col-md-2">
                 </div>
-                <div class="col-md-8">
-                    <h3>Lista de Productos</h3>
-                    <table class="table table-bordered table-hover">
-                        <thead class="header">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Cantidad</th>
-                            <th>Stock actual</th>
-                            <th>Precio unitario</th>
-                            <th>Precio total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>leche</td>
-                            <td>2</td>
-                            <td>50</td>
-                            <td>3.0</td>
-                            <td>6.0</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-md-4 pull-right">
-                        <label>Costo Total </label>
-                        <label id="poner_costo"></label>
-                    </div>
+                <div class="col-md-8" id="div_tabla_productos_rv">
+
                 </div>
             </div>
             <br/>
@@ -232,8 +207,8 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-file"></span>
-                        Generar Boleta
+                    <button type="button" class="btn btn-primary" id="registrar_v"><span class="glyphicon glyphicon-file"></span>
+                        Registrar Venta
                     </button>
                 </div>
                 <div class="col-md-3">
@@ -255,9 +230,9 @@
                     <label class="col-md-5">N° de pedido</label>
 
                     <div class="input-group col-md-7">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="pedido_ingresado">
                                 <span class="input-group-btn">
-                                  <button class="btn btn-default" type="button"><span
+                                  <button class="btn btn-default" type="button" id="buscar_venta"><span
                                           class="glyphicon glyphicon-search"></span> Buscar
                                   </button>
                                 </span>
@@ -271,14 +246,14 @@
                             <label class="col-md-5">Nombres</label>
 
                             <div class="col-md-7">
-                                <input type="text" class="form-control" disabled="disabled"/>
+                                <input type="text" class="form-control" disabled="disabled" id="consultar_nombre"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="col-md-5">Apellidos</label>
 
                             <div class="col-md-7">
-                                <input type="text" class="form-control" disabled="disabled"/>
+                                <input type="text" class="form-control" disabled="disabled" id="consultar_apellidos"/>
                             </div>
                         </div>
                     </div>
@@ -287,14 +262,14 @@
                             <label class="col-md-5">DNI</label>
 
                             <div class="col-md-7">
-                                <input type="text" class="form-control" disabled="disabled"/>
+                                <input type="text" class="form-control" disabled="disabled" id="consultar_dni"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="col-md-5">Direccion</label>
 
                             <div class="col-md-7">
-                                <input type="text" class="form-control" disabled="disabled"/>
+                                <input type="text" class="form-control" disabled="disabled" id="consultar_direccion"/>
                             </div>
                         </div>
                     </div>
@@ -303,39 +278,15 @@
                             <label class="col-md-5">Fecha</label>
 
                             <div class="col-md-7">
-                                <input type="text" class="form-control" disabled="disabled"/>
+                                <input type="text" class="form-control" disabled="disabled" id="consultar_fecha"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
                         </div>
-                        <div class="col-md-8">
-                            <h3>Lista de Productos</h3>
-                            <table class="table table-bordered table-hover">
-                                <thead class="header">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
-                                    <th>Stock actual</th>
-                                    <th>Precio unitario</th>
-                                    <th>Precio total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>leche</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>3.0</td>
-                                    <td>6.0</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div class="col-md-4 pull-right">
-                                <label>Costo Total </label>
-                                <label> 6.0</label>
-                            </div>
+                        <div class="col-md-8" id="div_tabla_consultar_venta">
+
                         </div>
                     </div>
                 </div>
