@@ -1,33 +1,36 @@
-define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/views/select_tipoproducto_view",
-    "apps/ventas/form/views/select_producto_view","apps/ventas/form/model/pedido","apps/ventas/form/model/producto",
-    "bootstrap"], function (TiendaAndre, layoutTpl,SelectTipoProductoView,TraerProductos,PedidoModel,ProductoModel) {
+define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form/views/select_tipoproducto_view",
+    "apps/ventas/form/views/select_producto_view", "apps/ventas/form/model/pedido", "apps/ventas/form/model/producto",
+    "bootstrap"], function (TiendaAndre, layoutTpl, SelectTipoProductoView, TraerProductos, PedidoModel, ProductoModel) {
     TiendaAndre.module('VentasApp.List.View', function (View, TiendaAndre, Backbone, Marionette, $, _) {
 
         View.Layout = Marionette.Layout.extend({
             template: layoutTpl,
-            selectTipoProductoView:new SelectTipoProductoView(),
-            traerProductos:new TraerProductos(),
+            selectTipoProductoView: new SelectTipoProductoView(),
+            traerProductos: new TraerProductos(),
 
-            numero_pedido:null,
-            costo_total_pedido:0,
-            tipo_pedido:null,
+            numero_pedido: null,
+            costo_total_pedido: 0,
+            tipo_pedido: null,
 
-            cod_producto:[],
+            cod_producto: [],
 
-            regions:{
-                div_select_tipoproducto:"#div_select_tipoproducto",
-                div_select_producto:"#div_select_producto"
+            regions: {
+                div_select_tipoproducto: "#div_select_tipoproducto",
+                div_select_producto: "#div_select_producto"
             },
 
-            events:{
-                "change #tipo_venta":"change_tipo_venta",
-                "change #t_producto":"change_producto",
-                "click #agregar_producto":"agregar_producto_a_pedido",
-                "click .sacar_fila":"sacar_producto_tabla",
-                "click #registrar_pedido":"registrar_pedido"
+            events: {
+                "change #tipo_venta": "change_tipo_venta",
+                "change #t_producto": "change_producto",
+                "click #agregar_producto": "agregar_producto_a_pedido",
+                "click .sacar_fila": "sacar_producto_tabla",
+                "click #registrar_pedido": "registrar_pedido",
+                "click #enviar_almacen": "enviar_almacen",
+                "click #registrar_venta": "registrar_venta",
+                "click #cancelar_pedido": "cancelar_pedido"
             },
 
-            onRender:function(){
+            onRender: function () {
                 this.initialFetch();
                 this.div_select_tipoproducto.show(this.selectTipoProductoView);
                 this.div_select_producto.show(this.traerProductos)
@@ -37,13 +40,13 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
                 this.model = new Backbone.Model();
 
                 this.model.set({
-                    pedidomodel:new PedidoModel(),
-                    productomodel:new ProductoModel()
+                    pedidomodel: new PedidoModel(),
+                    productomodel: new ProductoModel()
                 });
             },
             initialFetch: function () {
-                var self=this;
-                this.selectTipoProductoView.fetchTipoProductos(function(){
+                var self = this;
+                this.selectTipoProductoView.fetchTipoProductos(function () {
                     $('#lb_t_producto').removeClass('col-md-5');
                     $('#div_t_producto').removeClass('col-md-7');
                     $('#lb_t_producto').addClass('col-md-4');
@@ -53,98 +56,101 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
                 self.traerProductos.fetchProductos(0)
             },
 
-            change_tipo_venta:function(){
-                var self=this;
+            change_tipo_venta: function () {
+                var self = this;
                 this.model.get("pedidomodel").url = "rest/ventas/numero_pedido";
                 var fetch_s = this.model.get("pedidomodel").fetch({});
                 fetch_s.done(function () {
-                    self.numero_pedido=self.model.get("pedidomodel").get("n_pedido");
+                    self.numero_pedido = self.model.get("pedidomodel").get("n_pedido");
                     $('#n_pedido').val(self.numero_pedido);
                 });
-                self.tipo_pedido=$('#tipo_venta').val();
-                if($('#tipo_venta').val()==1){
+                self.tipo_pedido = $('#tipo_venta').val();
+                if ($('#tipo_venta').val() == 1) {
                     $('#fila1').show();
                     $('#fila2').show();
                     $('#fila3').show()
                     $('#fila4').show()
-                    $('#fila5').show()
-                }else{
-                    if($('#tipo_venta').val()==2){
+                    $('#fila5').show();
+                    $('#enviar_almacen').removeAttr('disabled', 'disabled');
+                } else {
+                    if ($('#tipo_venta').val() == 2) {
                         $('#fila1').show();
                         $('#fila2').show();
                         $('#fila3').show()
                         $('#fila4').show()
                         $('#fila5').show()
-                    }else{
+                        $('#enviar_almacen').attr('disabled', 'disabled');
+                    } else {
                         $('#fila1').hide();
                         $('#fila2').hide();
                         $('#fila3').hide()
                         $('#fila4').hide()
-                        $('#fila5').hide()
+                        $('#fila5').hide();
+                        $('#enviar_almacen').attr('disabled', 'disabled');
                     }
                 }
             },
 
-            change_producto:function(){
-                var self=this;
-                self.traerProductos.fetchProductos($('#t_producto').val(),function(){
+            change_producto: function () {
+                var self = this;
+                self.traerProductos.fetchProductos($('#t_producto').val(), function () {
                     self.div_select_producto.show(self.traerProductos)
                 })
             },
 
             agregar_producto_a_pedido: function () {
-                var self=this;
-                var id_producto=$('#n_producto').val();
-                this.model.get("productomodel").url = "rest/ventas/buscar_producto/"+id_producto;
+                var self = this;
+                var id_producto = $('#n_producto').val();
+                this.model.get("productomodel").url = "rest/ventas/buscar_producto/" + id_producto;
                 var fetch_s = this.model.get("productomodel").fetch({ data: $.param({"id": id_producto}) });
                 fetch_s.done(function () {
-                    if($('#cantidad').val()<=self.model.get("productomodel").get("cantidad")){
-                        var codigo=self.model.get("productomodel").get("codigo");
+                    if ($('#cantidad').val() <= self.model.get("productomodel").get("cantidad")) {
+                        var codigo = self.model.get("productomodel").get("codigo");
                         self.cod_producto.push(codigo);
-                        for(var i=0;i<self.cod_producto.length;i++){
-                            console.log(self.cod_producto[i]+"-"+i);
+                        for (var i = 0; i < self.cod_producto.length; i++) {
+                            console.log(self.cod_producto[i] + "-" + i);
                         }
-                        var nombre=self.model.get("productomodel").get("nombre");
-                        var cantidad=$('#cantidad').val();
-                        var stock=self.model.get("productomodel").get("cantidad");
-                        var precio_unitario=self.model.get("productomodel").get("porc_precio");
-                        var precio_total=precio_unitario*cantidad;
-                        self.costo_total_pedido=self.costo_total_pedido+precio_total;
+                        var nombre = self.model.get("productomodel").get("nombre");
+                        var cantidad = $('#cantidad').val();
+                        var stock = self.model.get("productomodel").get("cantidad");
+                        var precio_unitario = self.model.get("productomodel").get("porc_precio");
+                        var precio_total = precio_unitario * cantidad;
+                        self.costo_total_pedido = self.costo_total_pedido + precio_total;
                         $('#costo_total').text(self.costo_total_pedido);
-                        $('#tabla_productos_pedido > tbody ').append('<tr id="'+codigo+'">'+
-                            '<td>'+nombre+'</td>' +
-                            '<td>'+cantidad+'</td>' +
-                            '<td>'+stock+'</td>' +
-                            '<td>'+precio_unitario+'</td>' +
-                            '<td>'+precio_total+'</td>' +
+                        $('#tabla_productos_pedido > tbody ').append('<tr id="' + codigo + '">' +
+                            '<td>' + nombre + '</td>' +
+                            '<td>' + cantidad + '</td>' +
+                            '<td>' + stock + '</td>' +
+                            '<td>' + precio_unitario + '</td>' +
+                            '<td>' + precio_total + '</td>' +
                             '<td><button class="btn btn-danger small sacar_fila"><span class="glyphicon glyphicon-trash"></span></button></td></tr>');
-                    }else{
+                    } else {
                         alert("el stock no abastece")
                     }
                 });
             },
 
             sacar_producto_tabla: function (ev) {
-                var self=this;
-                var clickedElement=$(ev.currentTarget);
+                var self = this;
+                var clickedElement = $(ev.currentTarget);
                 clickedElement.parent().parent().remove();
-                alert(clickedElement.parent().parent().attr('id')+"-")
+                alert(clickedElement.parent().parent().attr('id') + "-")
                 alert(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))))
                 self.cod_producto.splice(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))), 1);
-                for(var i=0;i<self.cod_producto.length;i++){
+                for (var i = 0; i < self.cod_producto.length; i++) {
                     console.log(self.cod_producto[i]);
                 }
-                self.costo_total_pedido=self.costo_total_pedido-clickedElement.parent().parent().children(':nth-child(5)').text();
+                self.costo_total_pedido = self.costo_total_pedido - clickedElement.parent().parent().children(':nth-child(5)').text();
                 $('#costo_total').text(self.costo_total_pedido);
             },
 
             registrar_pedido: function () {
-                var self=this;
+                var self = this;
                 this.model.get("pedidomodel").set({
-                    "n_pedido":self.numero_pedido,
-                    "tipo_pedido":self.tipo_pedido,
-                    "estado":"P",
-                    "costo_total":self.costo_total_pedido
+                    "n_pedido": self.numero_pedido,
+                    "tipo_pedido": self.tipo_pedido,
+                    "estado": "P",
+                    "costo_total": self.costo_total_pedido
                 });
 
                 this.model.get("pedidomodel").url = "rest/ventas/registrar_pedido";
@@ -156,12 +162,13 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
 
                 self_s.fail(function () {
                     alert("pedido registrado")
-                    for(var i=0;i<self.cod_producto.length;i++){
+                    for (var i = 0; i < self.cod_producto.length; i++) {
+                        var contador = i;
                         self.model.get("pedidomodel").set({
-                            "n_pedido":self.numero_pedido,
-                            "cod_producto":self.cod_producto[i],
-                            "cantidad":$('#'+self.cod_producto[i]).children(':nth-child(2)').text(),
-                            "costo":$('#'+self.cod_producto[i]).children(':nth-child(5)').text()
+                            "n_pedido": self.numero_pedido,
+                            "cod_producto": self.cod_producto[i],
+                            "cantidad": $('#' + self.cod_producto[i]).children(':nth-child(2)').text(),
+                            "costo": $('#' + self.cod_producto[i]).children(':nth-child(5)').text()
                         });
 
                         self.model.get("pedidomodel").url = "rest/ventas/registrar_detalle_pedido";
@@ -172,15 +179,48 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout","apps/almacen/form/
                         });
 
                         self_s.fail(function () {
-                            alert("detalle pedido registrado")
-                            self.cod_producto.splice(self.cod_producto.indexOf(parseInt(self.cod_producto[i])),1);
-                            if(i==self.cod_producto.length-1){
-                                $('#tabla_productos_pedido > tbody ').remove();
+                            if (contador == (self.cod_producto.length - 1)) {
+                                self.cod_producto.length = 0;
+                                /*$('#tabla_productos_pedido > tbody > tr ').remove();
+                                 $('#fila1').hide();
+                                 $('#fila2').hide();
+                                 $('#fila3').hide();
+                                 $('#fila4').hide();
+                                 $('#fila5').hide();
+                                 $('#tipo_venta').val(99);*/
+                                $('#t_producto').val(99);
+                                $('#n_producto').val(99);
+                                $('#cantidad').val("");
+                                self.costo_total_pedido = 0;
                             }
                         });
                     }
                 });
 
+            },
+
+            enviar_almacen: function () {
+
+            },
+
+            registrar_venta: function () {
+                $('#rv').click();
+            },
+
+            cancelar_pedido: function () {
+                var self=this;
+                self.cod_producto.length = 0;
+                $('#tabla_productos_pedido > tbody > tr ').remove();
+                $('#fila1').hide();
+                $('#fila2').hide();
+                $('#fila3').hide();
+                $('#fila4').hide();
+                $('#fila5').hide();
+                $('#tipo_venta').val(99);
+                $('#t_producto').val(99);
+                $('#n_producto').val(99);
+                $('#cantidad').val("");
+                self.costo_total_pedido = 0;
             }
         });
     });
