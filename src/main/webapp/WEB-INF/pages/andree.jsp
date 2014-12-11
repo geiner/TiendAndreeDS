@@ -32,7 +32,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="padding-top: 22px;">
-                <li><a href="#" style="color: #333;">${userDetails.username}</a></li>
+                <li><a href="#" style="color: #333;" id="user">${userDetails.username}</a></li>
                 <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>
                 <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>
                 <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>

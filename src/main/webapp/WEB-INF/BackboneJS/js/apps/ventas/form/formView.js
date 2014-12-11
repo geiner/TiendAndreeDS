@@ -258,6 +258,20 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
 
             registrar_v: function () {
                 var self=this;
+                $('#r_nombres').val($('#nombres').val());
+                $('#r_apellidos').val($('#apellidos').val());
+                $('#r_dni').val($('#dni').val());
+                $('#r_direccion').val($('#direccion').val());
+                $('#r_n_pedido').val($('#m_pedido_venta').val());
+                $('#r_usuario').val($('#user').text());
+
+                $('#f_nombres').val($('#nombres').val());
+                $('#f_apellidos').val($('#apellidos').val());
+                $('#f_dni').val($('#dni').val());
+                $('#f_direccion').val($('#direccion').val());
+                $('#f_n_pedido').val($('#m_pedido_venta').val());
+                $('#f_usuario').val($('#user').text());
+                $('#f_ruc').val($('#ruc').val());
                 self.model.get("ventamodel").set({
                     "n_pedido": self.numero_pedido,
                     "tipo_comprobante": $('#tipo_comp').val(),
@@ -265,7 +279,7 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                     "apellidos": $('#apellidos').val(),
                     "dni": $('#dni').val(),
                     "direccion": $('#direccion').val(),
-                    "ruc": $('#m_pedido_venta').val()
+                    "ruc": $('#ruc').val()
                 });
 
                 self.model.get("ventamodel").url = "rest/ventas/registrar_venta";
@@ -276,7 +290,12 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                 });
 
                 self_s.fail(function () {
-                    alert("se registro la venta")
+                    alert("se registro la venta");
+                    if($('#tipo_comp').val()==1){
+                       $('#boton_boleta_venta').click();
+                    }else{
+                        $('#boton_factura_venta').click();
+                    }
                 });
             },
 

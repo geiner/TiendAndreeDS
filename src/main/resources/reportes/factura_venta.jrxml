@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte de Conformidad" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="usuario" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["usuario_plani"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nombres" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Geinner"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="apellidos" class="java.lang.String">
+		<defaultValueExpression><![CDATA["tucto huaripata"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dni" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[47461377]]></defaultValueExpression>
+	</parameter>
+	<parameter name="direccion" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Mz Z lt 5 los nisperos"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="n_pedido" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[3]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ruc" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT pro.nombre,
+              dp.cantidad,
+              dp.costo,
+              pro.porc_precio
+            FROM pedido pe
+            INNER JOIN detalle_pedido dp
+            ON(pe.n_pedido =dp.n_pedido
+            AND pe.n_pedido=$P{n_pedido})
+            INNER JOIN producto pro
+            ON(pro.codigo=dp.cod_producto)]]>
+	</queryString>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="CANTIDAD" class="java.math.BigDecimal"/>
+	<field name="COSTO" class="java.lang.Double"/>
+	<field name="PORC_PRECIO" class="java.math.BigDecimal"/>
+	<variable name="fecha" class="java.util.Date" resetType="Page">
+		<initialValueExpression><![CDATA[new Date()]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="186" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-5" x="3" y="4" width="285" height="26" />
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TIENDA ANDREE S.A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="189" y="95" width="39" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendedor:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy   h:mm a" isBlankWhenNull="false">
+				<reportElement key="textField-18" x="47" y="95" width="83" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{fecha}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-19" x="230" y="95" width="83" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-8" x="7" y="95" width="39" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="7" y="119" width="39" height="14" />
+				<textElement textAlignment="Left">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="3" y="29" width="285" height="13" />
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[venta de abarrotes y frutas secas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-11" x="4" y="163" width="75" height="12" />
+				<textElement>
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[NOMBRE PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-13" x="200" y="163" width="80" height="12" />
+				<textElement>
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PRECIO UNITARIO]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-1" x="3" y="183" width="550" height="1" />
+			</line>
+			<staticText>
+				<reportElement key="staticText-12" x="331" y="163" width="88" height="12" />
+				<textElement>
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PRECIO TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-12" x="104" y="163" width="47" height="12" />
+				<textElement>
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="3" y="42" width="285" height="14" />
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Av.Jose La Mar N°885 - Urb. Santa Cruz - Miraflores - Lima ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="3" y="56" width="285" height="14" />
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Telefono: 557 3345 / 557 3356	RPC:987654321]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="358" y="4" width="183" height="66" />
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-5" x="358" y="24" width="183" height="26" />
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="189" y="119" width="39" height="14" />
+				<textElement textAlignment="Left">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DNI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="319" y="119" width="39" height="14" />
+				<textElement textAlignment="Left">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="439" y="52" width="17" height="14" />
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="456" y="52" width="29" height="14" />
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{n_pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="119" width="66" height="14" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="119" width="62" height="14" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="119" width="83" height="14" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="119" width="100" height="14" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccion}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-19" x="446" y="70" width="83" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ruc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText-7" x="405" y="70" width="39" height="13" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="4" y="4" width="100" height="20" />
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="4" width="100" height="20" />
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="4" width="100" height="20" />
+				<textFieldExpression><![CDATA[$F{PORC_PRECIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="4" width="100" height="20" />
+				<textFieldExpression><![CDATA[$F{COSTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-16" x="4" y="5" width="288" height="11" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Tienda Andree S.A]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-23" x="431" y="5" width="44" height="11" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-24" x="475" y="5" width="34" height="11" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de  "+$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-2" x="3" y="3" width="550" height="1" />
+			</line>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-17" x="4" y="10" width="288" height="11" />
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Tienda Andree S.A]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-25" x="431" y="14" width="44" height="11" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-26" x="475" y="14" width="34" height="11" />
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de  "+$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="4" y="7" width="550" height="1" />
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -219,6 +219,25 @@
             </div>
         </fieldset>
     </form>
+    <form action="rest/reportes/boleta_venta/pdf" method="POST" id="">
+        <input type="hidden" style="display: none" id="r_nombres" name="nombres" >
+        <input type="hidden" style="display: none" id="r_apellidos" name="apellidos" >
+        <input type="hidden" style="display: none" id="r_dni" name="dni" >
+        <input type="hidden" style="display: none" id="r_direccion" name="direccion" >
+        <input type="hidden" style="display: none" id="r_n_pedido" name="n_pedido">
+        <input type="hidden" style="display: none" id="r_usuario" name="usuario">
+        <button id="boton_boleta_venta" class="btn btn-warning" type="submit" style="display: none;">Boleta</button>
+    </form>
+    <form action="rest/reportes/factura_venta/pdf" method="POST" id="">
+        <input type="hidden" style="display: none" id="f_nombres" name="nombres" >
+        <input type="hidden" style="display: none" id="f_apellidos" name="apellidos" >
+        <input type="hidden" style="display: none" id="f_dni" name="dni" >
+        <input type="hidden" style="display: none" id="f_direccion" name="direccion" >
+        <input type="hidden" style="display: none" id="f_n_pedido" name="n_pedido">
+        <input type="hidden" style="display: none" id="f_usuario" name="usuario">
+        <input type="hidden" style="display: none" id="f_ruc" name="ruc">
+        <button id="boton_factura_venta" class="btn btn-warning" type="submit" style="display: none;">Factura</button>
+    </form>
 </div>
 <div class="tab-pane" id="lC">
     <br/>
