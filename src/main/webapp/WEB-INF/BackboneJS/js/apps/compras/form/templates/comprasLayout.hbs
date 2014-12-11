@@ -1,350 +1,379 @@
-	<fieldset class="avgrund-contents">
-        <div class="tabbable tabs-left" id="">
-	        <ul class="nav nav-tabs" id="">
-	            <li class="active"><a href="#lA" data-toggle="tab" id="pestania_registro">Registro de Compras</a></li>
-	            <li class=""><a href="#lB" data-toggle="tab">Administrar Proveedores</a></li>
-	            <li class=""><a href="#lC" data-toggle="tab">Actualizar Requerimientos</a></li>
-	            <!--<li class=""><a href="#lE" data-toggle="tab">Carrera Laboral</a></li>-->
-	        </ul>
-	        <br>
-	        <div class="tab-content">
-	            <div class="tab-pane active" id="lA">
-	                <br/>
-					<form class="form-horizontal" id="registrar_compra">
-					    <fieldset>
-					        <div class="row form-group">
-					            <div class="col-md-6" id="div_tipo_compra">
-					                <label class="control-label col-md-5" for="tipo">Producto</label>
-					                <div class="col-md-7" id="combo_x_producto">
+<fieldset class="avgrund-contents">
+<div class="tabbable tabs-left" id="">
+<ul class="nav nav-tabs" id="">
+    <li class="active"><a href="#lA" data-toggle="tab" id="pestania_registro">Registro de Compras</a></li>
+    <li class=""><a href="#lB" data-toggle="tab">Administrar Proveedores</a></li>
+    <li class=""><a href="#lC" data-toggle="tab">Actualizar Requerimientos</a></li>
+    <!--<li class=""><a href="#lE" data-toggle="tab">Carrera Laboral</a></li>-->
+</ul>
+<br>
 
-					                </div>
-					            </div>
-					        </div>
-					        <div class="row form-group">
-					            <div class="col-md-6" id="div_tipo_proveedor">
-					                <label class="control-label col-md-5" for="tipo">Nombre del proveedor</label>
-					                <div class="col-md-7" id="combo_x_proveedor">
+<div class="tab-content">
+<div class="tab-pane active" id="lA">
+    <br/>
 
-					                </div>
-					            </div>
-					        </div>
-							<div class="row form-group">
-					            <div class="col-md-6">
-					                <label class="control-label col-md-5" for="n_ruc">Ruc</label>
-					                <div class="col-md-7 controls">
-					                    <input type="text" id="n_ruc" class="form-control"/>
-					                </div>
-					            </div>
-					        </div>
-							<div class="row form-group">
-					            <div class="col-md-6">
-					                <label class="control-label col-md-5" for="n_cantidad">Cantidad</label>
-					                <div class="col-md-7 controls">
-					                    <input type="text" id="n_cantidad" class="form-control"/>
-					                </div>
-					            </div>
-					        </div>
-							<div class="row form-group">
-					            <div class="col-md-6">
-					                <label class="control-label col-md-5" for="n_fecha">fecha</label>
-					                <div class="col-md-7 controls">
-					                    <input type="text" id="n_fecha" class="form-control"/>
-					                </div>
-					            </div>
-					        </div>
-							<div class="row form-group">
-					            <div class="col-md-6">
-					                <label class="control-label col-md-5" for="n_monto">Monto</label>
-					                <div class="col-md-7 controls">
-					                    <input type="text" id="n_monto" class="form-control"/>
-					                </div>
-					            </div>
-					        	<div class="col-md-4"></div>
-					            <div class="col-md-3 " style="padding-right: 10px;">
-					                <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span>
-					                    Agregar
-					                </button>
-					            </div>
-					        </div>
-					        <div class="row">
-					            <div class="col-md-2">
-					            </div>
-					            <div class="col-md-8">
-					                <table class="table table-bordered table-hover">
-					                    <thead class="header">
-					                    <tr>
-					                        <th>Fecha</th>
-					                        <th>Producto</th>
-					                        <th>Proveedor</th>
-					                        <th>R.U.C</th>
-					                        <th>Cantidad</th>
-					                        <th>Marca</th>
-					                    </tr>
-					                    </thead>
-					                    <tbody>
-					                    <tr>
-					                        <td>sgfeg</td>
-					                        <td>egerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                    </tr>
-					                    </tbody>
-					                </table>
-					            </div>
-					        </div>
-				            <div class="row">
-				                <div class="col-md-2">
-				                </div>
-				                <div class="col-md-3">
-				                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>
-				                        Guardar
-				                    </button>
-				                </div>
-				                <div class="col-md-3">
-				                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
-				                        Cancelar
-				                    </button>
-				                </div>
-				                <div class="col-md-2">
-				                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span>
-				                        Limpiar
-				                    </button>
-				                </div>
-				            </div>
-					    </fieldset>
-					</form>
-	            </div>
-	            <div class="tab-pane" id="lB">
-                    </br>
-                    <ol class="breadcrumb">
-                        <li><a id="agregar">Agregar</a></li>
-                        <li><a id="modificar" class="active">Modificar</a></li>
-                    </ol>
-                    <div id="agre">
-                        <br/>
-                        <legend>Registrar Proveedor</legend><br/>
-                        <form class="form-horizontal" id="agregar_pro">
-                            <fieldset>
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_nompro">Nombre proveedor</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_nompro" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_direcc">Direccion</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_direcc" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_tele">Telefono</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_tele" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_mail">E-mail</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_mail" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_dsc">Descripcion</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_dsc" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-primary" id="guardar_proveedor"><span class="glyphicon glyphicon-floppy-disk"></span>
-                                            Guardar
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
-                                            Cancelar
-                                        </button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
+    <form class="form-horizontal" id="registrar_compra">
+        <fieldset>
+            <div class="row form-group">
+                <div class="col-md-6" id="div_tipo_compra">
+                    <label class="control-label col-md-5" for="tipo">Producto</label>
+
+                    <div class="col-md-7" id="combo_x_producto">
+
                     </div>
-                    <div id="modi" style="display: none;">
-                        <br/>
-                        <legend>Modificar Datos del proveedor</legend><br/>
-                        <form class="form-vertical" id="registrar_pedido">
-                            <fieldset>
-                                    <div class="col-md-12" id="table_proveedor">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6" id="div_tipo_proveedor">
+                    <label class="control-label col-md-5" for="tipo">Nombre del proveedor</label>
 
-                                    </div>
+                    <div class="col-md-7" id="combo_x_proveedor">
 
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_codigo">Codigo</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_codigo" disabled="disabled"class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_nomprove">Nombre proveedor</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_nomprove" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_direcci">Direccion</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_direcci" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_telef">Telefono</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_telef" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_mails">E-mail</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_mails" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-md-3" id="div_select_producto"> </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-5" for="n_dscp">Descripcion</label>
-                                        <div class="col-md-7 controls">
-                                            <input type="text" id="n_dscp" class="form-control"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-primary" id="actualizar_proveedor"><span class="glyphicon glyphicon-floppy-disk"></span>
-                                            Guardar
-                                        </button>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
-                                            Cancelar
-                                        </button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
                     </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_ruc">Ruc</label>
 
-	            </div>
-	            <div class="tab-pane" id="lC">
-	                <br/>
-					<legend>Asignar presupuesto y/o modificar requerimiento</legend>
-						<form class="form-horizontal" id="registrar_compra">
-					    <fieldset>
-					        <div class="row form-group">
-					            <div class="col-md-6" id="div_tipo_compra">
-					                <label class="control-label col-md-5" for="tipo">Seleccione Requerimiento</label>
-					                <div class="col-md-7">
-					                    <select id="tipo" class="form-control">
-					                        <option value="99">Seleccionar</option>
-					                        <option value="1">opcion a</option>
-					                        <option value="2">opcion b</option>
-					                    </select>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="row">
-					            <div class="col-md-2">
-					            </div>
-					            <div class="col-md-8">
-					                <table class="table table-bordered table-hover">
-					                    <thead class="header">
-					                    <tr>
-					                        <th>Fecha</th>
-					                        <th>Producto</th>
-					                        <th>Cantidad</th>
-					                        <th>Precio Unitario</th>
-					                        <th>Precio total</th>
-					                        <th>Proveedor</th>
-					                    </tr>
-					                    </thead>
-					                    <tbody>
-					                    <tr>
-					                        <td>sgfeg</td>
-					                        <td>egerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                        <td>ergerg</td>
-					                    </tr>
-					                    </tbody>
-					                </table>
-					            </div>
-					        <label class="control-label col-md-4">Monto: ---</label></br>
-					        <label class="control-label col-md-4">Estado: --</label></br>
-					        <label class="control-label col-md-7">Observacion: --</label>
-					        </div>
-				            <div class="row">
-				            	</br>
-				                <div class="col-md-2">
-				                </div>
-				                <div class="col-md-3">
-				                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>
-				                        Guardar
-				                    </button>
-				                </div>
-				                <div class="col-md-3">
-				                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
-				                        Cancelar
-				                    </button>
-				                </div>
-				                <div class="col-md-2">
-				                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print"></span>
-				                        Imprimir
-				                    </button>
-				                </div>
-				                <div class="col-md-2">
-				                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>
-				                        Eliminar
-				                    </button>
-				                </div>
-				            </div>
-					    </fieldset>
-					</form>
-	            </div>
-	        </div>
-        </div>
-    </fieldset>
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_ruc" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_cantidad">Cantidad</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_cantidad" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_fecha">fecha</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_fecha" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_monto">Monto</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_monto" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-3 " style="padding-right: 10px;">
+                    <button type="button" class="btn btn-primary pull-right"><span
+                            class="glyphicon glyphicon-plus"></span>
+                        Agregar
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-bordered table-hover">
+                        <thead class="header">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Producto</th>
+                            <th>Proveedor</th>
+                            <th>R.U.C</th>
+                            <th>Cantidad</th>
+                            <th>Marca</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>sgfeg</td>
+                            <td>egerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>
+                        Guardar
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span>
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="tab-pane" id="lB">
+    </br>
+    <ol class="breadcrumb">
+        <li><a id="agregar">Agregar</a></li>
+        <li><a id="modificar" class="active">Modificar</a></li>
+    </ol>
+    <div id="agre">
+        <br/>
+        <legend>Registrar Proveedor</legend>
+        <br/>
+
+        <form class="form-horizontal" id="agregar_pro">
+            <fieldset>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_nompro">Nombre proveedor</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_nompro" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_direcc">Direccion</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_direcc" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_tele">Telefono</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_tele" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_mail">E-mail</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_mail" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5" for="n_dsc">Descripcion</label>
+
+                        <div class="col-md-7 controls">
+                            <input type="text" id="n_dsc" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-success" id="guardar_proveedor"><span
+                                    class="glyphicon glyphicon-floppy-disk"></span>
+                                Guardar
+                            </button>
+                            <button type="button" class="btn btn-default"><span
+                                    class="glyphicon glyphicon-remove"></span>
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div id="modi" style="display: none;">
+        <br/>
+        <legend>Modificar Datos del proveedor</legend>
+        <br/>
+        <fieldset>
+            <div class="col-md-12" id="table_proveedor">
+
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_codigo">Codigo</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_codigo" disabled="disabled" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_nomprove">Nombre proveedor</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_nomprove" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_direcci">Direccion</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_direcci" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_telef">Telefono</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_telef" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_mails">E-mail</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_mails" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3" id="div_select_producto"></div>
+                <div class="col-md-6">
+                    <label class="control-label col-md-5" for="n_dscp">Descripcion</label>
+
+                    <div class="col-md-7 controls">
+                        <input type="text" id="n_dscp" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <button type="button" class="btn btn-success" id="actualizar_proveedor"><span
+                                class="glyphicon glyphicon-floppy-disk"></span>
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+</div>
+<div class="tab-pane" id="lC">
+    <br/>
+    <legend>Asignar presupuesto y/o modificar requerimiento</legend>
+    <form class="form-horizontal" id="registrar_compra">
+        <fieldset>
+            <div class="row form-group">
+                <div class="col-md-6" id="div_tipo_compra">
+                    <label class="control-label col-md-5" for="tipo">Seleccione Requerimiento</label>
+
+                    <div class="col-md-7">
+                        <select id="tipo" class="form-control">
+                            <option value="99">Seleccionar</option>
+                            <option value="1">opcion a</option>
+                            <option value="2">opcion b</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-bordered table-hover">
+                        <thead class="header">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio total</th>
+                            <th>Proveedor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>sgfeg</td>
+                            <td>egerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                            <td>ergerg</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <label class="control-label col-md-4">Monto: ---</label></br>
+                <label class="control-label col-md-4">Estado: --</label></br>
+                <label class="control-label col-md-7">Observacion: --</label>
+            </div>
+            <div class="row">
+                </br>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>
+                        Guardar
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
+                        Cancelar
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print"></span>
+                        Imprimir
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</div>
+</div>
+</fieldset>
