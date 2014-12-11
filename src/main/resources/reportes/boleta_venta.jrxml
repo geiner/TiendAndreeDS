@@ -143,7 +143,7 @@
 				<text><![CDATA[Telefono: 557 3345 / 557 3356	RPC:987654321]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement x="358" y="4" width="183" height="66" "/>
+				<reportElement x="358" y="4" width="183" height="66"/>
 			</rectangle>
 			<staticText>
 				<reportElement key="staticText-5" x="358" y="24" width="183" height="26" />

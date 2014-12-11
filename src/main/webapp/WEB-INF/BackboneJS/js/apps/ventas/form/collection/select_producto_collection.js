@@ -3,7 +3,7 @@ define(['backbone', 'apps/ventas/form/model/select_producto_model'], function (B
     var Productos = Backbone.Collection.extend({
 
         model: SelectProductoModel,
-        setUrlProductos: function(id){
+        setUrlProductosVenta: function(id){
             this.url='rest/almacen/productos/'+id;
         }
 

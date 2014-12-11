@@ -3,8 +3,8 @@ define([ 'backbone', 'marionette', 'apps/ventas/form/collection/select_producto_
         var Productos = Backbone.Marionette.ItemView.extend({
             template: SelectProductoTemplate,
             collection: new SelectProductoCollection(),
-            fetchProductos: function (id,callback) {
-                this.collection.setUrlProductos(id);
+            fetchProductosVenta: function (id,callback) {
+                this.collection.setUrlProductosVenta(id);
                 this.collection.on("sync",this.render,this);
                 this.collection.fetch().done(callback)
             }

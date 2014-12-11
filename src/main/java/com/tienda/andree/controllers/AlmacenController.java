@@ -1,5 +1,6 @@
 package com.tienda.andree.controllers;
 
+import com.tienda.andree.models.EntradaProducto;
 import com.tienda.andree.models.Producto;
 import com.tienda.andree.services.AlmacenService;
 import org.slf4j.Logger;
@@ -69,7 +70,24 @@ public class AlmacenController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @ResponseBody
     public List<Producto> ListarProductosxCategoria(@PathVariable(value = "id") Integer  id){
-        System.out.println("listando productos x categoria");
+        System.out.println("listando productos x categoria "+id);
         return almacenService.ListarProductosxCategoria(id);
+    };
+
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json", value = "/registrar_entrada_productos")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public String RegistrarEntradaProductos(@RequestBody EntradaProducto entrada) {
+        almacenService.RegistrarEntradaProductos(entrada);
+        return "save";
+    };
+
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json", value = "/registrar_detalle_entrada_productos")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public String RegistrarDetalleEntradaProductos(@RequestBody EntradaProducto entrada) {
+        System.out.println(entrada.getCod_producto()+"-"+entrada.getCod_proveedor()+"-"+entrada.getCantidad()+"-"+entrada.getPrecio_compra());
+        almacenService.RegistrarDetalleEntradaProductos(entrada);
+        return "save";
     };
 }

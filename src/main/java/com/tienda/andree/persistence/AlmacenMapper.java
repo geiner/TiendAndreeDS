@@ -1,5 +1,6 @@
 package com.tienda.andree.persistence;
 
+import com.tienda.andree.models.EntradaProducto;
 import com.tienda.andree.models.Producto;
 import org.apache.ibatis.annotations.*;
 
@@ -80,4 +81,45 @@ public interface AlmacenMapper {
             @Result(property = "nombre",column = "nombre"),
     })
     List<Producto> ListarProductosxCategoria(@Param("id") Integer id);
+
+    @Insert(value = "INSERT " +
+            "INTO entrada_productos " +
+            "  ( " +
+            "    n_entrada, " +
+            "    fecha, " +
+            "    costo_total " +
+            "  ) " +
+            "  VALUES " +
+            "  ( " +
+            "   entrada_seq.nextval , " +
+            "    sysdate, " +
+            "    #{entrada.costo_total} " +
+            "  )")
+    void insertEntradaProducto(@Param("entrada") EntradaProducto entrada);
+
+    @Insert(value = "INSERT " +
+            "INTO detalle_entrada_productos " +
+            "  ( " +
+            "    N_ENTRADA, " +
+            "    COD_PRODUCTO, " +
+            "    COD_PROVEEDOR, " +
+            "    CANTIDAD, " +
+            "    PRECIO_COMPRA, " +
+            "    COSTO_TOTAL_PRODUCTO " +
+            "  ) " +
+            "  VALUES " +
+            "  ( " +
+            "   (select max(n_entrada) from entrada_productos), " +
+            "    #{entrada.cod_producto}, " +
+            "    #{entrada.cod_proveedor}, " +
+            "    #{entrada.cantidad}, " +
+            "   #{entrada.precio_compra}, " +
+            "    #{entrada.costo_total_producto} " +
+            "  )")
+    void inserDetalleEntradaProductos(@Param("entrada") EntradaProducto entrada);
+
+    @Update(value ="UPDATE producto " +
+            "SET cantidad=(select cantidad+#{entrada.cantidad} from producto where codigo=#{entrada.cod_producto}) "+
+            "WHERE codigo=#{entrada.cod_producto}" )
+    void updateStockProducto(@Param("entrada")EntradaProducto entrada);
 }

@@ -63,7 +63,7 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                     $('#div_t_producto').addClass('col-md-8');
                 });
 
-                self.traerProductos.fetchProductos(0)
+                self.traerProductos.fetchProductosVenta(0)
             },
 
             change_tipo_venta: function () {
@@ -103,7 +103,7 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
 
             change_producto: function () {
                 var self = this;
-                self.traerProductos.fetchProductos($('#t_producto').val(), function () {
+                self.traerProductos.fetchProductosVenta($('#t_producto').val(), function () {
                     self.div_select_producto.show(self.traerProductos)
                 })
             },
@@ -123,9 +123,9 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                         var nombre = self.model.get("productomodel").get("nombre");
                         var cantidad = $('#cantidad').val();
                         var stock = self.model.get("productomodel").get("cantidad");
-                        var precio_unitario = self.model.get("productomodel").get("porc_precio");
-                        var precio_total = precio_unitario * cantidad;
-                        self.costo_total_pedido = self.costo_total_pedido + precio_total;
+                        var precio_unitario = parseFloat(self.model.get("productomodel").get("precio_real"));
+                        var precio_total = parseFloat(precio_unitario * cantidad);
+                        self.costo_total_pedido = self.costo_total_pedido + parseFloat(precio_total);
                         $('#costo_total').text(self.costo_total_pedido);
                         $('#tabla_productos_pedido > tbody ').append('<tr id="' + codigo + '">' +
                             '<td>' + nombre + '</td>' +
@@ -144,8 +144,8 @@ define(["app", "hbs!apps/ventas/form/templates/ventasLayout", "apps/almacen/form
                 var self = this;
                 var clickedElement = $(ev.currentTarget);
                 clickedElement.parent().parent().remove();
-                alert(clickedElement.parent().parent().attr('id') + "-")
-                alert(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))))
+                /*alert(clickedElement.parent().parent().attr('id') + "-")
+                alert(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))))*/
                 self.cod_producto.splice(self.cod_producto.indexOf(parseInt(clickedElement.parent().parent().attr('id'))), 1);
                 for (var i = 0; i < self.cod_producto.length; i++) {
                     console.log(self.cod_producto[i]);

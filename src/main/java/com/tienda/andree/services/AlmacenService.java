@@ -1,5 +1,6 @@
 package com.tienda.andree.services;
 
+import com.tienda.andree.models.EntradaProducto;
 import com.tienda.andree.models.Producto;
 
 import java.util.List;
@@ -19,4 +20,8 @@ public interface AlmacenService {
     void EliminarProducto(Integer id);
 
     List<Producto> ListarProductosxCategoria(Integer id);
+
+    void RegistrarEntradaProductos(EntradaProducto entrada);
+
+    void RegistrarDetalleEntradaProductos(EntradaProducto entrada);
 }

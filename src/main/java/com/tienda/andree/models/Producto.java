@@ -12,6 +12,15 @@ public class Producto {
     private String uni_medida;
     private Integer cantidad;
     private Double costo;
+    private Double precio_real;
+
+    public Double getPrecio_real() {
+        return precio_real;
+    }
+
+    public void setPrecio_real(Double precio_real) {
+        this.precio_real = precio_real;
+    }
 
     public Double getCosto() {
         return costo;

@@ -1,5 +1,6 @@
 package com.tienda.andree.services.implement;
 
+import com.tienda.andree.models.EntradaProducto;
 import com.tienda.andree.models.Producto;
 import com.tienda.andree.persistence.AlmacenMapper;
 import com.tienda.andree.services.AlmacenService;
@@ -50,5 +51,16 @@ public class AlmacenServiceImpl implements AlmacenService {
     @Override
     public List<Producto> ListarProductosxCategoria(Integer id) {
         return almacenMapper.ListarProductosxCategoria(id);
+    }
+
+    @Override
+    public void RegistrarEntradaProductos(EntradaProducto entrada) {
+        almacenMapper.insertEntradaProducto(entrada);
+    }
+
+    @Override
+    public void RegistrarDetalleEntradaProductos(EntradaProducto entrada) {
+        almacenMapper.inserDetalleEntradaProductos(entrada);
+        almacenMapper.updateStockProducto(entrada);
     }
 }

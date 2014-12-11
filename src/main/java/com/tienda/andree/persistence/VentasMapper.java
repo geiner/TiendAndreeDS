@@ -18,13 +18,27 @@ public interface VentasMapper {
     })
     List<Pedido> TraerNumeroPedido();
 
-    @Select(value = "SELECT codigo ,nombre,cantidad,porc_precio FROM producto WHERE codigo=#{id}")
+    @Select(value = "SELECT codigo , " +
+            "  nombre, " +
+            "  cantidad, " +
+            "  (SELECT MAX(precio_compra) " +
+            "  FROM detalle_entrada_productos " +
+            "  WHERE cod_producto=#{id} " +
+            "  GROUP BY cod_producto " +
+            "  )*porc_precio/100+ " +
+            "  (SELECT MAX(precio_compra) " +
+            "  FROM detalle_entrada_productos " +
+            "  WHERE cod_producto=#{id} " +
+            "  GROUP BY cod_producto " +
+            "  ) AS precio_real " +
+            "FROM producto " +
+            "WHERE codigo=#{id}")
     @Results(value = {
             @Result(javaType = Producto.class),
             @Result(property = "codigo",column = "codigo"),
             @Result(property = "nombre",column = "nombre"),
             @Result(property = "cantidad",column = "cantidad"),
-            @Result(property = "porc_precio",column = "porc_precio"),
+            @Result(property = "precio_real",column = "precio_real"),
     })
     List<Producto> TraerDatosDeProducto(@Param("id") Integer id);
 

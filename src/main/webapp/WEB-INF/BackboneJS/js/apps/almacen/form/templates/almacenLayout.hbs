@@ -358,34 +358,23 @@
     <br/>
     <div class="row form-group">
         <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <label class="col-md-5">Tipo Producto</label>
-            <div class="col-md-7">
-                <select id="" class="form-control">
-                    <option value="99">Seleccionar Tipo de Producto</option>
-                </select>
-            </div>
+        <div class="col-md-6" id="div_entrada_productos_tipo">
+
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" id="div_entrada_productos">
+
         </div>
     </div>
     <div class="row form-group">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <label class="col-md-5">Nombre Producto</label>
-            <div class="col-md-7">
-                <select id="" class="form-control">
-                    <option value="99">Seleccionar Producto</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <label class="col-md-5">Proveedor</label>
-            <div class="col-md-7">
-                <select id="" class="form-control">
-                    <option value="99">Seleccionar Proveedor</option>
-                </select>
+            <label class="control-label col-md-5" for="tipo">Proveedor</label>
+
+            <div class="col-md-7" id="combo_x_proveedor">
+
             </div>
         </div>
     </div>
@@ -394,7 +383,7 @@
         <div class="col-md-6">
             <label class="col-md-5">Cantidad</label>
             <div class="col-md-7">
-                <input type="text" class="form-control"/>
+                <input type="text" class="form-control" id="entrada_cantidad"/>
             </div>
         </div>
     </div>
@@ -403,16 +392,7 @@
         <div class="col-md-6">
             <label class="col-md-5">Precio de Compra</label>
             <div class="col-md-7">
-                <input type="text" class="form-control"/>
-            </div>
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <label class="col-md-5">Fecha</label>
-            <div class="col-md-7">
-                <input type="text" class="form-control"/>
+                <input type="text" class="form-control" id="entrada_precio_compra"/>
             </div>
         </div>
     </div>
@@ -421,49 +401,37 @@
         <div class="col-md-6">
             <div class="col-md-5"></div>
             <div class="col-md-7 pull-right">
-                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar
+                <button type="button" class="btn btn-success" id="entrada_agregar_tabla"><span class="glyphicon glyphicon-plus"></span> Agregar
                 </button>
             </div>
         </div>
     </div>
     <br/><br/>
     <div class="row">
-        <table class="table table-bordered table-hover">
+        <h3>Lista de Productos</h3>
+        <table class="table table-bordered table-hover" id="tabla_productos_entrada">
+            <thead class="header">
             <tr>
-                <td><label>Fecha</label></td>
-                <td><label>Producto</label></td>
-                <td><label>Proveedor</label></td>
-                <td><label>Cantidad</label></td>
-                <td><label>Precio de Compra</label></td>
+                <th>Producto</th>
+                <th>Proveedor</th>
+                <th>Cantidad</th>
+                <th>Precio de Compra</th>
+                <th>Precio Total</th>
+                <th>Eliminar</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            </thead>
+            <tbody>
+            </tbody>
         </table>
-        </br>
+        <div class="col-md-4 pull-right">
+            <label for="">Costo Total </label>
+            <label id="costo_total"></label>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-6">
-            <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+            <button class="btn btn-success" id="entrada_guardar"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
             <button class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Cancelar</button>
         </div>
     </div>
