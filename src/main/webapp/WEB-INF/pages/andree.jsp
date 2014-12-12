@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -33,9 +35,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="padding-top: 22px;">
                 <li><a href="#" style="color: #333;" id="user">${userDetails.username}</a></li>
-                <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>
-                <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>
-                <%--<li><a href="#" style="color: #333;">${userDetails.username}</a></li>--%>
+                <li><a href="j_spring_security_logout">Cerrar Sesion</a></li>
                 <li>
                     <a href="#" tabindex="0" data-trigger="focus" id="opciones">
                         <img src="/assets/img/usuario.png" style="width: 36px;margin-top: -9px;border-radius: 6px;"></a>
@@ -47,28 +47,40 @@
     <!-- /.container-fluid -->
 </nav>
 <div id="page">
+    <sec:authorize access="hasAnyRole('ADMIN')">
     <nav id="menu">
         <ul>
             <li><a href="#inicio" class="bbn">Inicio</a></li>
-            <li><a href="#admin" class="bbn">Administrador</a></li>
-            <!--<li><a href="#pedidos" class="bbn">Pedidos</a>
-                 <ul>
-                     <li><a href="#pedidos" class="bbn">Registrar Pedido</a></li>
-                     <li><a href="#about/team">The team</a>
-                         <ul>
-                             <li><a href="#about/team/management">Management</a></li>
-                             <li><a href="#about/team/sales">Sales</a></li>
-                             <li><a href="#about/team/development">Development</a></li>
-                         </ul>
-                     </li>
-                     <li><a href="#about/address">Our address</a></li>
-                 </ul> -->
-            </li>
             <li><a href="#almacen" class="bbn">Almacen</a></li>
             <li><a href="#ventas" class="bbn">Ventas</a></li>
             <li><a href="#compras" class="bbn">Compras</a></li>
         </ul>
     </nav>
+    </sec:authorize>
+    <sec:authorize access="hasAnyRole('ALMACEN')">
+        <nav id="menu">
+            <ul>
+                <li><a href="#inicio" class="bbn">Inicio</a></li>
+                <li><a href="#almacen" class="bbn">Almacen</a></li>
+            </ul>
+        </nav>
+    </sec:authorize>
+    <sec:authorize access="hasAnyRole('VENTAS')">
+        <nav id="menu">
+            <ul>
+                <li><a href="#inicio" class="bbn">Inicio</a></li>
+                <li><a href="#ventas" class="bbn">Ventas</a></li>
+            </ul>
+        </nav>
+    </sec:authorize>
+    <sec:authorize access="hasAnyRole('COMPRAS')">
+        <nav id="menu">
+            <ul>
+                <li><a href="#inicio" class="bbn">Inicio</a></li>
+                <li><a href="#compras" class="bbn">Compras</a></li>
+            </ul>
+        </nav>
+    </sec:authorize>
     <div class="navbar navbar-inverse menu" role="navigation">
         <a href="#menu" class="icono_menu"></a>
         <div class="container">

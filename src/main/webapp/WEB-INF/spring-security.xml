@@ -11,6 +11,8 @@
 
     <security:http use-expressions="true">
         <security:intercept-url pattern="/**" access="permitAll" />
+        <!--<security:intercept-url pattern="/admin/**" access="hasAnyRole('ACCESO')"/>-->
+        <!--<security:intercept-url pattern="/rest/cas/worker/**" access="hasAnyRole('SOLICPERF')"/>-->
         <security:form-login />
         <security:logout logout-success-url="/" delete-cookies="JSESSIONID"/>
         <!--<security:remember-me />-->
@@ -20,7 +22,7 @@
     </security:http>
 
 
-    <!--<bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+   <bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
         <property name="dataSource" ref="dataSource"/>
         <property name="enableAuthorities" value="true"/>
         <property name="usersByUsernameQuery">
@@ -41,15 +43,15 @@
         <security:authentication-manager alias="authenticationManager">
             <security:authentication-provider user-service-ref="userDetailsService">
             </security:authentication-provider>
-        </security:authentication-manager>-->
+        </security:authentication-manager>
 
     <bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
 
-    <security:authentication-manager alias="authenticationManager">
+    <!--<security:authentication-manager alias="authenticationManager">
         <security:authentication-provider>
             <security:password-encoder ref="encoder"/>
             <security:user-service>
-                <!-- Password: "koala" for both -->
+               Password: "koala" for both
                 <security:user name="user"
                                password="4efe081594ce25ee4efd9f7067f7f678a347bccf2de201f3adf2a3eb544850b465b4e51cdc3fcdde"
                                authorities="user"/>
@@ -58,5 +60,5 @@
                                authorities="admin"/>
             </security:user-service>
         </security:authentication-provider>
-    </security:authentication-manager>
+    </security:authentication-manager>-->
 </beans>
